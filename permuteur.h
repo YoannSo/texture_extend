@@ -2,7 +2,9 @@
 #define	_PERMUTEUR_H
 
 #include <stdlib.h>
-
+#include <string>
+#include <algorithm>
+#include <cstdlib>
 /*!
  *
  * Les instances de cette classe sont des iterateurs sur des permutations

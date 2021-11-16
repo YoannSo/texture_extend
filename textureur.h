@@ -7,7 +7,7 @@
 #include <float.h>
 #include <limits>
 #include <climits>
-
+#include <iostream>
 #include "image_4b.h"
 #include "x11display_code.h"
 #include "matrix2d.h"
