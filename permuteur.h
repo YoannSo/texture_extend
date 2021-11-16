@@ -1,6 +1,8 @@
 #ifndef _PERMUTEUR_H
 #define	_PERMUTEUR_H
 
+#include <stdlib.h>
+
 /*!
  *
  * Les instances de cette classe sont des iterateurs sur des permutations
@@ -19,9 +21,6 @@
  *
  */
 class Permuteur {
-// A FAIRE : classe a completer au besoin
-// A FAIRE : les implementations dans permuteur.cpp
-
 public:
 
   /*!
@@ -43,7 +42,7 @@ public:
  private :
   int max;
   int* perm; // tableau de la permutation.
-  int * indices; // tableau des indices à permuter
+  int * indices; // tableau des indices ï¿½ permuter
   int i_perm;  // indice d'avancement dans la permutation.
 
 };
