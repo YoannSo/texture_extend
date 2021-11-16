@@ -29,20 +29,21 @@ Permuteur::Permuteur(int max) {
     } 
     this->max = max;
     indices=(int*)malloc(sizeof(max)); // tableau des indices � permuter
-    shuffle_array(this->perm,sizeof(this->perm) / sizeof(this->perm[0]));
-    i_perm=0;
+   // shuffle_array(this->perm,sizeof(this->perm) / sizeof(this->perm[0]));
+    this->i_perm=0;
 }
 
 Permuteur::~Permuteur(){
     free(this->perm);
+    free(this->indices);
 }
 
 int Permuteur::suivant(){
-    if(this->i_perm>this->max){
-        shuffle_array(this->perm,sizeof(this->perm) / sizeof(this->perm[0]));
+   /* if(this->i_perm>this->max){
+       // shuffle_array(this->perm,sizeof(this->perm) / sizeof(this->perm[0]));
         this->i_perm=0;
-    }
-    int returned=perm[this->i_perm];
+    }*/
+    int returned=this->perm[this->i_perm];
     this->i_perm++;
     return returned;
 }
