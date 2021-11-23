@@ -11,6 +11,7 @@ class RaccordeurRecursif : public Raccordeur {
     virtual ~RaccordeurRecursif(); //destructeur
 };
 
-    int calcul_Recursif(MatInt2* distances, int* coupe, int maxLargeur);
+void calcul_Recursif(MatInt2* distances, int* coupe, int maxLargeur,MatInt2* E);
 
+int smallest(int x, int y, int z);
 #endif 

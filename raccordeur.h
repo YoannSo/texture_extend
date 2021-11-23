@@ -2,6 +2,9 @@
 #define	_RACCORDEUR_H
 
 #include "matrix2d.h"
+#include <algorithm>    // std::min
+#include <iostream>
+using namespace std;
 
 /*!
  * Definit le concept de raccordeur qui est utilise pour calculer un raccord
