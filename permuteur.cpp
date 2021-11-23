@@ -13,8 +13,7 @@ void shuffle_array(int arr[], int n)
     unsigned seed = 0;
  
     // Shuffling our array
-    shuffle(arr, arr + n,
-            default_random_engine(seed));
+    shuffle(arr, arr + n, default_random_engine(seed));
  
     // Printing our array
     //for (int i = 0; i < n; ++i)
@@ -25,7 +24,7 @@ void shuffle_array(int arr[], int n)
 Permuteur::Permuteur(int max) {
     this->perm=(int*)malloc(sizeof(int)*max);
     for(int i=0;i<max;i++){
-        //cout << i;
+        cout << i;
         this->perm[i]=i;
     } 
     this->max = max;

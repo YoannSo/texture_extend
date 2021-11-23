@@ -232,7 +232,7 @@ bool Textureur::win2win(Image_4b& src,int src_x,int src_y,int w,int h,
 
 void Textureur::placer_avec_bord(int b,int c,int l)
 {
-  fprintf(stdout,"placer b %d en (c=%d,l=%d)\n",b,c,l);
+  //fprintf(stdout,"placer b %d en (c=%d,l=%d)\n",b,c,l);
   bloc* bb = & table_blocs[b];
   
   if (!win2win(*im_texture,bb->x0+bord,bb->y0+bord,

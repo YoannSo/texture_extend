@@ -7,7 +7,7 @@ XLIBS= -ltiff -L/usr/X11R6/lib -lX11
 # les libs : -lX11 -ltiff
 
 EXEC=tp testpermut
-OBJECTS=main_tp.o image_4b.o matrix2d.o permuteur.o textureur.o x11display_code.o raccordeur_simple.o 
+OBJECTS=main_tp.o image_4b.o matrix2d.o permuteur.o textureur.o x11display_code.o raccordeur_simple.o raccordeur_recursif.o
 
 usage:
 	@echo "Cible possibles :"
@@ -30,6 +30,7 @@ permuteur.o: permuteur.h tools.h
 raccordeur_simple.o: raccordeur_simple.h raccordeur.h matrix2d.h
 textureur.o: textureur.h matrix2d.h descripteur_tache.h raccordeur.h permuteur.h
 x11display_code.o: x11display_code.h
+raccordeur_recursif.o: raccordeur_recursif.h
 
 %.o: %.cpp
 	$(CXX) -o $@ -c $< $(CXXFLAGS)

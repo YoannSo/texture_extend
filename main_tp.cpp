@@ -5,6 +5,7 @@
 #include "descripteur_tache.h"
 #include "raccordeur.h"
 #include "raccordeur_simple.h"
+#include "raccordeur_recursif.h"
 
 
 
@@ -68,9 +69,12 @@ int main(int argc, char **argv){
             break;
         case 2:
             tache.raccordeur = new RaccordeurSimple();
+            
             break;
         case 3:
-            //tache.raccordeur = new RaccordeurRecursifNaif();
+            tache.utiliserPermuteur = true;
+            tache.choisirMeilleurBloc = false;
+            tache.raccordeur = new RaccordeurRecursif();
             break;
         case 4:
           
