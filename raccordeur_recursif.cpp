@@ -1,33 +1,54 @@
 #include "raccordeur_recursif.h"
+
+int smallest(int x, int y, int z){
+    return min(min(x, y), z);
+}
+
+int getOfsetOfMin(int x,int y, int z){
+    if(x<y){
+        if(x<z){
+            return -1;
+        }
+        if(y<z){
+            return 0;
+        }
+        return 1;
+    }
+    if(y<z)
+        return 0;
+    return 1;
+}
+
 int RaccordeurRecursif::calculerRaccord(MatInt2* distances, int* coupe){
 
     int milieu = distances->nColonnes()/2;
     int hauteur = distances->nLignes();
-    
     int largeur = distances->nColonnes();
-    
     MatInt2 E = MatInt2(hauteur,largeur);
     calcul_Recursif(distances,coupe, hauteur-1,&E);
     int minI= 0;
     
-
-     for(int i = 1;i<largeur;i++){ // calcul du premier min
+    for(int i = 1;i<largeur;i++){ // calcul du premier min
         if(E.get(hauteur-1,minI)<E.get(hauteur-1,i))
             continue;
         minI = i;
     } 
-    for(int j=hauteur-2;j>=0;j--){ // ici ca marche pas 
+    for(int j=hauteur-2;j>=0;j--){
         if(minI==0){
-            if(E.get(j,minI)<E.get(j,minI+1))
+            if(E.get(j,minI)<E.get(j,minI+1)){
                 coupe[j]=minI;
-            else
+            }
+            else{
                 coupe[j] =  minI+1;
+            }
         }
         else if(minI==largeur-1){
-            if(E.get(j,minI)<E.get(j,minI-1))
+            if(E.get(j,minI)<E.get(j,minI-1)){
                 coupe[j]=minI;
-            else
+            }
+            else{
                 coupe[j] = minI-1;
+            }
         }
         else{
             coupe[j] = minI+getOfsetOfMin(E.get(j,minI-1),E.get(j,minI),E.get(j,minI+1));
@@ -55,46 +76,18 @@ void calcul_Recursif(MatInt2* distances, int* coupe, int indices, MatInt2* E){
             int masterMin;
             if(i==0){
                  masterMin=min(E->get(indices-1,i),E->get(indices-1,i+1));
-                
-
             }
             else if(i==largeur-1){  
                  masterMin=min(E->get(indices-1,i),E->get(indices-1,i-1));
-                
-
             }
             else{
                 masterMin=smallest(E->get(indices-1,i-1),E->get(indices-1,i),E->get(indices-1,i+1));
-                
-
             }
-            
             E->set(indices,i,masterMin+distances->get(indices,i));
-
         }
     }
 }
 
 RaccordeurRecursif::~RaccordeurRecursif(){
       // pas de ressources a liberer
-}
-
-
-int smallest(int x, int y, int z){
-    return min(min(x, y), z);
-}
-
-int getOfsetOfMin(int x,int y, int z){
-    if(x<y){
-        if(x<z){
-            return -1;
-        }
-        if(y<z){
-            return 0;
-        }
-        return 1;
-    }
-    if(y<z)
-        return 0;
-    return 1;
 }
