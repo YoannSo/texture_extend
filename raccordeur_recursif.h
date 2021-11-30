@@ -14,4 +14,6 @@ class RaccordeurRecursif : public Raccordeur {
 void calcul_Recursif(MatInt2* distances, int* coupe, int maxLargeur,MatInt2* E);
 
 int smallest(int x, int y, int z);
+
+int getOfsetOfMin(int x,int y, int z);
 #endif 
