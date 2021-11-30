@@ -25,8 +25,7 @@ int RaccordeurIteratif::calculerRaccord(MatInt2* distances, int* coupe){
              E.set(i,j,masterMin+distances->get(i,j));
         }
     }
-    for (int i=0;i<hauteur;i++){
-        for(int j=0;j<largeur;j++){cout<<"i:"<<i<<" j;"<<j<<" value:"<<E.get(i,j)<<endl;}}
+    
     for(int i = 1;i<largeur;i++){ // calcul du premier min
         if(E.get(hauteur-1,minI)<E.get(hauteur-1,i))
             continue;

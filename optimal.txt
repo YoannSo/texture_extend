@@ -1,0 +1,3 @@
+serieAv_bd.JPG.tif 3
+6.jpg: ./tp images/6.jpg.tif 4 2 20 800 800
+13.jpg: ./tp images/13.jpg.tif 4 4 20 800 800

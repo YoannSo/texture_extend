@@ -80,10 +80,12 @@ int main(int argc, char **argv){
         case 4:
             tache.utiliserPermuteur = true;
             tache.choisirMeilleurBloc = false;
-            tache.raccordeur = new RaccordeurIteratif();
+            tache.raccordeur = new RaccordeurRecursif();
             break;
         case 5:
-            
+            tache.utiliserPermuteur = true;
+            tache.choisirMeilleurBloc = false;
+            tache.raccordeur = new RaccordeurIteratif();
             break;
         default:
             fprintf(stderr, "Valeur non geree pour algo : %d\n", algo);

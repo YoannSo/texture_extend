@@ -39,7 +39,7 @@ int RaccordeurRecursif::calculerRaccord(MatInt2* distances, int* coupe){
                 coupe[j]=minI;
             }
             else{
-                coupe[j] =  minI+1;
+                coupe[j] = minI+1;
             }
         }
         else if(minI==largeur-1){
