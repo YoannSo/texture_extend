@@ -1,3 +1,32 @@
-serieAv_bd.JPG.tif 3
+commandes optimales pour chaque image
+
+Accepte jusqu'a 6 parametres :
+ fichier image, defaut : gravier.tif
+ numero de l'algorithme, defaut : 0
+ racine du nombre de blocs, defaut : 3
+ taille de la zone de recouvrement, defaut : 20
+ largeur de l'image de sortie, defaut : 600
+ hauteur de l'image de sortie, defaut : 600
+
+Algorithmes :
+ 0 : bloc au hasard, raccord simple
+ 1 : bloc au hasard avec le permuteur, raccord simple
+ 2 : meilleur bloc, raccord simple
+ 3 : raccord avec coupe optimale (recursif naif)
+ 4 : raccord avec coupe optimale (recursif utilisable)
+ 5 : raccord avec coupe optimale (iteratif)
+
+dans le dossier images
 6.jpg: ./tp images/6.jpg.tif 4 2 20 800 800
 13.jpg: ./tp images/13.jpg.tif 4 4 20 800 800
+canettes.tif /tp images/canettes.tif 4 2 10
+canettes2.tif ./tp images/canettes2.tif 4 3 10 500 400 (a revoir)
+glace66.tif ./tp images/glace66.tif 4 3 10 500 500
+gravier_seych.jpg.tif ./tp images/gravier_seych.jpg.tif 4 2 20 500 400
+jav122.jpg.tif ./tp images/jav122.jpg.tif 4 3 10 500 500
+serieAv_bd.JPG.tif ./tp images/serieAv_bd.JPG.tif 4 3
+stream.jpg.tif ./tp images/stream.jpg.tif 4 3 20 500 500
+test4.tif ./tp images/test4.tif 4 3 50 800 800
+
+dans le dossier principal
+gravier.tif ./tp gravier.tif 4 3 10 400 400
