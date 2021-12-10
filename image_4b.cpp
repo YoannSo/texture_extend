@@ -8,7 +8,7 @@
 
 Image_4b::Image_4b()
 {
-  
+
   width=-1;  // init utiles si echec lecture fichier
   height=-1;
   pdata=NULL;
@@ -17,7 +17,7 @@ Image_4b::Image_4b()
 
 Image_4b::~Image_4b(){
   if (pdata != NULL) delete[] pdata;
-  if (linePtr != NULL) delete[] linePtr; 
+  if (linePtr != NULL) delete[] linePtr;
 }
 
 // initialisation
@@ -25,17 +25,17 @@ Image_4b::~Image_4b(){
 bool Image_4b::init(const char* filename){
   int w,h;
   TIFF* tif = TIFFOpen(filename,"r");
-  if(tif>0){
+  if(tif!=0){
     // fprintf(stderr,"TIFFOpen donne %x\n",(unsigned int)tif);
     TIFFGetField(tif,TIFFTAG_IMAGEWIDTH,&w);
     TIFFGetField(tif,TIFFTAG_IMAGELENGTH,&h);
   }else
     {    return false ;
     }
-	
+
   // on a les dimensions - on alloue
   Alloc(w,h,NULL);
-	
+
   // puis on lit le fichier
   int res= TIFFReadRGBAImage(tif,w,h,(uint32*)pdata,0);
   if(res<0){
@@ -51,8 +51,8 @@ bool Image_4b::init(const char* filename){
   //  printf("%d\n", GetBlue(1,1));
   //  printf("%d\n", GetAlpha(1,1));
 
-	
-  return true ; 
+
+  return true ;
 }
 
 
@@ -61,7 +61,7 @@ void Image_4b::FlipVertically1 (void)
 {
   unsigned char* tmp_store = new unsigned char[LineOffset];
   int endloop = height/2;
-  
+
   for (int y1=0; y1<endloop; y1++)
     {
       int y2 = height-y1-1;
@@ -132,7 +132,7 @@ Image_4b::Image_4b(int x0,int y0,int w,int h,Image_4b* ima)
     return;}
 
   // allocate, then copy subimage from ima
-  
+
   Alloc(w,h,NULL);
   for (int y1=0; y1<height; y1++)
     memcpy(GetPixelPtr(0,y1),ima->GetPixelPtr(x0,y0+y1),LineOffset);
@@ -146,7 +146,7 @@ Image_4b::Image_4b(int x0,int y0,int w,int h,Image_4b* ima)
   //   for (int i=0; i<height; i++) {
   //     *(tmp++)= ima->GetPixelPtr(x0,y0+i);
   //   }
-  
+
 }
 
 void Image_4b::Alloc (int w, int h, unsigned char* b)
@@ -168,7 +168,7 @@ void Image_4b::InitLinePtr(void)
   if (linePtr != NULL)
     delete [] linePtr;
   linePtr = new unsigned char* [height];
-  
+
   unsigned char* v= pdata;
   unsigned char ** tmp= linePtr;
   for (int i=0; i<height; i++) {
@@ -219,4 +219,3 @@ bool Image_4b::checkdim(int x,int y,const char* where)
     return false;
   }
 }
-

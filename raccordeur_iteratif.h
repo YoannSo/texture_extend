@@ -2,7 +2,7 @@
 #define	_RACCORDEUR_ITERATIF_H
 
 #include "raccordeur.h"
-#include "utils/utils.h"
+#include "tools.h"
 
 class RaccordeurIteratif : public Raccordeur {
 

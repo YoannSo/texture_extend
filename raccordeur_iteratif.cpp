@@ -1,12 +1,10 @@
 #include "raccordeur_iteratif.h"
 
 int RaccordeurIteratif::calculerRaccord(MatInt2* distances, int* coupe){
-
-    int milieu = distances->nColonnes()/2;
     int hauteur = distances->nLignes();
     int largeur = distances->nColonnes();
     MatInt2 E = MatInt2(hauteur,largeur);
-    
+
     int minI= 0;
     for(int i=0;i<largeur;i++){
         E.set(0,i,distances->get(0,i));
@@ -20,12 +18,12 @@ int RaccordeurIteratif::calculerRaccord(MatInt2* distances, int* coupe){
             else if(j==largeur-1){
                 masterMin=min(E.get(i-1,j),E.get(i-1,j-1));
             } else {
-                masterMin=smallest(E.get(i-1,j-1),E.get(i-1,j),E.get(i-1,j+1));
+                masterMin=min_double3(E.get(i-1,j-1),E.get(i-1,j),E.get(i-1,j+1));
             }
              E.set(i,j,masterMin+distances->get(i,j));
         }
     }
-    
+
     for(int i = 1;i<largeur;i++){ // calcul du premier min
         if(E.get(hauteur-1,minI)<E.get(hauteur-1,i))
             continue;
@@ -51,12 +49,12 @@ int RaccordeurIteratif::calculerRaccord(MatInt2* distances, int* coupe){
             }
         }
         else{
-            coupe[j] = minI+getOfsetOfMin(E.get(j,minI-1),E.get(j,minI),E.get(j,minI+1));
+            coupe[j] = minI+ind_min_double(E.get(j,minI-1),E.get(j,minI),E.get(j,minI+1));
         }
         minI = coupe[j];
 
     }
-    
+
     return 0;
 }
 
